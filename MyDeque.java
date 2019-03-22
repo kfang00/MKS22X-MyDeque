@@ -20,6 +20,21 @@ public class MyDeque<E>{
   }
 
   public String toString(){
+    String s = "";
+    if (e < a) {
+      for (int a = start; a < size(); a++) {
+        s += data[a];
+      }
+      for (int b = 0; b < e; b++) {
+        s += data[b];
+      }
+    }
+    else {
+      for (int c = start; c < e; c++) {
+        s += data[c];
+      }
+    }
+    return s;
 
   }
 
