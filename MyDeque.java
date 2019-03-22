@@ -39,6 +39,9 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
+    if (start == 0) {
+      
+    }
 
   }
 
