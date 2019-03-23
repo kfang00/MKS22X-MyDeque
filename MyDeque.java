@@ -65,7 +65,7 @@ public class MyDeque<E>{
         size += 1;
       }
     }
-    else if (end < start) {
+    else {
       if ((start - 1) != end) {
 	data[start - 1] = element;
         start = start - 1;
@@ -77,11 +77,6 @@ public class MyDeque<E>{
         start = (data.length - 1);
         size += 1;
       }
-    }
-    else {
-      data[start - 1] = element;
-      start = start - 1;
-      size += 1;
     }
 
   }
@@ -107,7 +102,7 @@ public class MyDeque<E>{
         size += 1;
       }
     }
-    else if (end < start) {
+    else {
       if ((end + 1) != start) {
 	data[end + 1] = element;
         end = end + 1;
@@ -120,26 +115,45 @@ public class MyDeque<E>{
         size += 1;
       }
     }
-    else {
-      data[end + 1] = element;
-      end += 1;
-      size += 1;
-    }
   }
 
   public E removeFirst(){
-
+    if (size() == 0) {
+      throw new NoSuchElementException();
+    }
+    if (size() == 1) {
+      start = 0;
+      end = 0;
+      size = size - 1;
+    }
+    if (start == (data.length - 1)) {
+      start = 0;
+      size = size - 1;
+    }
+    else {
+      start += 1;
+      size = size - 1;
+    }
   }
 
   public E removeLast(){
+    if (size() == 0) {
+      throw new NoSuchElementException();
+    }
 
   }
 
   public E getFirst(){
+    if (size() == 0) {
+      throw new NoSuchElementException();
+    }
 
   }
 
   public E getLast(){
+    if (size() == 0) {
+      throw new NoSuchElementException();
+    }
 
   }
 
