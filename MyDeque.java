@@ -140,7 +140,19 @@ public class MyDeque<E>{
     if (size() == 0) {
       throw new NoSuchElementException();
     }
-
+    if (size() == 1) {
+      start = 0;
+      end = 0;
+      size = size - 1;
+    }
+    if (end == 0) {
+      end = data.length - 1;
+      size = size - 1;
+    }
+    else {
+      end = end - 1;
+      size = size - 1;
+    }
   }
 
   public E getFirst(){
