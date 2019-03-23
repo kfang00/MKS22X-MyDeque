@@ -171,7 +171,26 @@ public class MyDeque<E>{
   }
 
   private void resize(){
-
+    @SuppressWarnings("unchecked")
+    E[] d = (E[])new Object[size() * 2];
+    int idx = 0;
+    if (end < start) {
+      for (int a = start; a < size(); a++) {
+        d[idx] = data[a];
+        idx++;
+      }
+      for (int b = 0; b <= end; b++) {
+        d[idx] = data[b];
+        idx++;
+      }
+    }
+    else {
+      for (int c = start; c <= end; c++) {
+        d[idx] = data[c];
+        idx++;
+      }
+    }
+    data = d;
   }
 
 }
