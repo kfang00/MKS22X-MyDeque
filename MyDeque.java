@@ -130,7 +130,7 @@ public class MyDeque<E>{
       end = 0;
       size = size - 1;
     }
-    if (start == (data.length - 1)) {
+    else if (start == (data.length - 1)) {
       hold = data[start];
       start = 0;
       size = size - 1;
@@ -154,7 +154,7 @@ public class MyDeque<E>{
       end = 0;
       size = size - 1;
     }
-    if (end == 0) {
+    else if (end == 0) {
       hold = data[end];
       end = data.length - 1;
       size = size - 1;
