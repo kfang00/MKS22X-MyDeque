@@ -46,27 +46,27 @@ public class MyDeque<E>{
 
   public void addFirst(E element){
     if (element == null) {
-      throw new NullPointerException();
+      throw new NullPointerException(); //if the specified element is null (this deque does not permit null elements)
     }
-    if (size() == 0) {
+    if (size() == 0) { //if data is empty, add to the 0th index
       data[start] = element;
       size += 1;
     }
     else if (start == 0) {
       if (end != (data.length - 1)) {
-	data[data.length - 1] = element;
+	data[data.length - 1] = element; //if the front is full, add to the back if it has space
         start = (data.length - 1);
         size += 1;
       }
       else {
-	resize();
+	resize(); 
         data[data.length - 1] = element;
         start = (data.length - 1);
         size += 1;
       }
     }
     else {
-      if ((start - 1) != end) {
+      if ((start - 1) != end) { //if start and end do not meet
 	data[start - 1] = element;
         start = start - 1;
         size += 1;
@@ -83,14 +83,14 @@ public class MyDeque<E>{
 
   public void addLast(E element){
     if (element == null) {
-      throw new NullPointerException();
+      throw new NullPointerException(); //if the specified element is null (this deque does not permit null elements)
     }
-    if (size() == 0) {
+    if (size() == 0) { //if data is empty, add to the 0th index
       data[end] = element;
       size += 1;
     }
     else if (end == (data.length - 1)) {
-      if (start != 0) {
+      if (start != 0) { //if end is full, add to the front if it has space
 	data[0] = element;
         end = 0;
         size += 1;
@@ -120,7 +120,7 @@ public class MyDeque<E>{
   public E removeFirst(){
     E hold;
     if (size() == 0) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException(); //if this deque is empty
     }
     if (size() == 1) {
       hold = data[start];
@@ -138,13 +138,13 @@ public class MyDeque<E>{
       start += 1;
       size = size - 1;
     }
-    return hold;
+    return hold; //returns the removed element
   }
 
   public E removeLast(){
     E hold;
     if (size() == 0) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException(); //if this deque is empty
     }
     if (size() == 1) {
       hold = data[end];
@@ -162,27 +162,27 @@ public class MyDeque<E>{
       end = end - 1;
       size = size - 1;
     }
-    return hold;
+    return hold; //returns the removed element
   }
 
   public E getFirst(){
     if (size() == 0) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException(); //if this deque is empty
     }
-    return data[start];
+    return data[start]; //peek
 
   }
 
   public E getLast(){
     if (size() == 0) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException(); //if this deque is empty
     }
-    return data[end];
+    return data[end]; //peek
   }
 
   private void resize(){
     @SuppressWarnings("unchecked")
-    E[] d = (E[])new Object[size() * 2];
+    E[] d = (E[])new Object[size() * 2]; //doubling the size
     int idx = 0;
     if (end < start) {
       for (int a = start; a < size(); a++) {
@@ -200,6 +200,8 @@ public class MyDeque<E>{
         idx++;
       }
     }
+    start = 0;
+    end = size() - 1;
     data = d;
   }
 
