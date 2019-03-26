@@ -12,25 +12,25 @@ public class Calculator{
 	    Scanner in = new Scanner(s);
       while (in.hasNext()) {
         hold = in.next();
-        if (hold == "+") {
+        if (hold.equals("+")) {
           hold2 = de.removeLast() + de.removeLast();
           de.addLast(hold2);
         }
-        if (hold == "-") {
+        if (hold.equals("-")) {
           hold2 = de.removeLast();
           hold2 = de.removeLast() - hold2;
           de.addLast(hold2);
         }
-        if (hold == "*") {
+        if (hold.equals("*")) {
           hold2 = de.removeLast() * de.removeLast();
           de.addLast(hold2);
         }
-        if (hold == "/") {
+        if (hold.equals("/")) {
           hold2 = de.removeLast();
           hold2 = de.removeLast() / hold2;
           de.addLast(hold2);
         }
-        if (hold == "%") {
+        if (hold.equals("%")) {
           hold2 = de.removeLast();
           hold2 = de.removeLast() % hold2;
           de.addLast(hold2);
@@ -41,5 +41,9 @@ public class Calculator{
         }
       }
       return de.getFirst();
+    }
+
+    public static void main(String[] args) {
+      System.out.println(eval("10 2.0 +"));
     }
 }
