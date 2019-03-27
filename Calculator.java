@@ -16,21 +16,21 @@ public class Calculator{
           hold2 = de.removeLast() + de.removeLast();
           de.addLast(hold2);
         }
-        if (hold.equals("-")) {
+        else if (hold.equals("-")) {
           hold2 = de.removeLast();
           hold2 = de.removeLast() - hold2;
           de.addLast(hold2);
         }
-        if (hold.equals("*")) {
+        else if (hold.equals("*")) {
           hold2 = de.removeLast() * de.removeLast();
           de.addLast(hold2);
         }
-        if (hold.equals("/")) {
+        else if (hold.equals("/")) {
           hold2 = de.removeLast();
           hold2 = de.removeLast() / hold2;
           de.addLast(hold2);
         }
-        if (hold.equals("%")) {
+        else if (hold.equals("%")) {
           hold2 = de.removeLast();
           hold2 = de.removeLast() % hold2;
           de.addLast(hold2);
@@ -44,6 +44,6 @@ public class Calculator{
     }
 
     public static void main(String[] args) {
-      System.out.println(eval("10 2.0 +"));
+      System.out.println(eval("1 2 3 4 5 + * - -"));
     }
 }
